@@ -54,14 +54,13 @@ if __name__ == "__main__":
 				try:
 					data = sock.recv(RECV_BUFFER)
 					if data:
-						broadcast_data(sock, "\r" + " < " + str(sock.getpeername()) + ' >' + data)
-
+						broadcast_data(sock, "\r" + " < " + str(sock.getpeername()) + ' >' + data)					
 				except:
 					broadcast_data(sock, "Client (%s,%s) is offline" %addr)
 					print "Client (%s,%s) is offline" %addr
 					sock.close()
 					CONNECTION_LIST.remove(sock)
 					continue
-
+        	print len(CONNECTION_LIST)
 	server_socket.close()
 
